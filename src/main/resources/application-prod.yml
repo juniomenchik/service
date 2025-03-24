@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: service
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/resources
+      exclude: static/**,public/**
+      poll-interval: 2s
+      quiet-period: 1s
