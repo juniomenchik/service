@@ -8,3 +8,13 @@ spring:
       exclude: static/**,public/**
       poll-interval: 2s
       quiet-period: 1s
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
