@@ -1,4 +1,4 @@
-package com.ecommerce.service.util;
+package com.ecommerce.service.application.utils;
 
 
 public class ResponseBodyDTO {

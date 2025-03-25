@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - Sistema Restaurante</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Login</h1>
+        
+        <!-- Formulário padrão do Spring Security -->
+        <form th:action="@{/login}" method="post">
+            <input type="text" name="username" placeholder="Usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            
+            <!-- Mensagem de erro (se houver) -->
+            <div th:if="${param.error}" class="alert">
+                Usuário/senha inválidos!
+            </div>
+            
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

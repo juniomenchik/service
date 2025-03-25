@@ -1,13 +1,33 @@
 spring:
   application:
     name: service
+  datasource:
+    url: jdbc:h2:file:./data/restaurante
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  thymeleaf:
+    cache: false # Desativa cache em desenvolvimento
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   devtools:
     restart:
-      enabled: true
+      enabled: false
       additional-paths: src/main/resources
       exclude: static/**,public/**
       poll-interval: 2s
       quiet-period: 1s
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
 
 springdoc:
   swagger-ui:

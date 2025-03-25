@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lançamento de Pedidos</title>
+</head>
+<body>
+    <h1>Lançar Pedido</h1>
+    <form th:action="@{/garcom/lancar-item}" th:object="${comanda}" method="post">
+        <label>Número da Mesa (1-300):</label>
+        <input type="number" th:field="*{numeroMesa}" min="1" max="300" required>
+
+        <label>Item:</label>
+        <select th:field="*{itemSelecionado}">
+            <option th:each="item : ${itens}" th:value="${item.id}" th:text="${item.name}"></option>
+        </select>
+
+        <label>Preço:</label>
+        <input type="number" step="0.01" th:field="*{precoModificado}" required>
+
+        <label>Quantidade:</label>
+        <input type="number" th:field="*{quantidade}" min="1" required>
+
+        <label>Imprimir na Cozinha?</label>
+        <input type="checkbox" th:field="*{imprimirCozinha}">
+
+        <button type="submit">Lançar</button>
+    </form>
+</body>
+</html>
