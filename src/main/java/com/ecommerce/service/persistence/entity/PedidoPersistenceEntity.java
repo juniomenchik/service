@@ -1,4 +1,4 @@
-package com.ecommerce.service.persistence.jpa.entity;
+package com.ecommerce.service.persistence.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "pedidos") 
-public class Pedido {
+public class PedidoPersistenceEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +21,14 @@ public class Pedido {
 
     @ManyToOne
     @JoinColumn(name = "comanda_id", nullable = false)
-    private Comanda comanda; // Comanda a qual o pedido pertence
+    private ComandaPersistenceEntity comanda; // Comanda a qual o pedido pertence
 
     @Column(name = "observacao")
     private String observacao; // "Sem cebola", "Ponto da carne"
 
     @ManyToOne
     @JoinColumn(name = "item_id", nullable = false)
-    private Item item; // Item do cardápio
+    private ItemPersistenceEntity item; // Item do cardápio
     
     @Column(name = "quantidade", nullable = false)
     private Integer quantidade; // 1, 2, 3, ...

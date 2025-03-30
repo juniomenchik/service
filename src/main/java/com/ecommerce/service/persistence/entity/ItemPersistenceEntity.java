@@ -1,4 +1,4 @@
-package com.ecommerce.service.persistence.jpa.entity;
+package com.ecommerce.service.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "itens")
-public class Item {
+public class ItemPersistenceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,24 +1,26 @@
 spring:
-  application:
-    name: service
   datasource:
-    url: jdbc:h2:file:./data/restaurante
-    username: sa
-    password: 
-    driver-class-name: org.h2.Driver
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-  thymeleaf:
-    cache: false # Desativa cache em desenvolvimento
+    url: jdbc:mysql://mysql_db:3306/restaurante?useSSL=false&allowPublicKeyRetrieval=true
+    username: admin
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+# Configuração do Flyway (opcional)
+flyway:
+  enabled: true
+  locations: classpath:db/migration
+  baseline-on-migrate: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate # Opções: none, validate, update, create-drop
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  thymeleaf:
+    cache: false # Desativa cache em desenvolvimento
   devtools:
     restart:
-      enabled: false
+      enabled: true
       additional-paths: src/main/resources
       exclude: static/**,public/**
       poll-interval: 2s
@@ -27,7 +29,7 @@ spring:
 logging:
   level:
     org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql: TRACE
+    org.hibernate.type.descriptor.sql: TRACE # Logs detalhados do Hibernate
 
 springdoc:
   swagger-ui:

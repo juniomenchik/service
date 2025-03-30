@@ -1,4 +1,4 @@
-package com.ecommerce.service.persistence.jpa.entity;
+package com.ecommerce.service.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -10,15 +10,16 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements UserDetails {
+public class UsuarioPersistenceEntity implements UserDetails {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)        // Define o campo como único
     private String username;
     private String password;
-    private String role; // "GARCOM" ou "CAIXA"
+    private String role;                            // "GARCOM" ou "CAIXA"
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

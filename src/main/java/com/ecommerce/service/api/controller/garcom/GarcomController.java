@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.ecommerce.service.persistence.jpa.entity.Comanda;
+import com.ecommerce.service.persistence.entity.ComandaPersistenceEntity;
 
 @Controller
 @RequestMapping("/garcom")
@@ -22,7 +22,7 @@ public class GarcomController {
     }
 
     @PostMapping("/lancar-item")
-    public String lancarItem(@ModelAttribute Comanda comanda) {
+    public String lancarItem(@ModelAttribute ComandaPersistenceEntity comanda) {
         // comandaRepository.save(comanda);
 
         return "redirect:/garcom/lancar";

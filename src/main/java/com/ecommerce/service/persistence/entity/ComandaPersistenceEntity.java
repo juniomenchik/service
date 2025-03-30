@@ -1,4 +1,4 @@
-package com.ecommerce.service.persistence.jpa.entity;
+package com.ecommerce.service.persistence.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "comandas") 
-public class Comanda {
+public class ComandaPersistenceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,6 @@ public class Comanda {
     private Double precoTotal;                                  // preco total da comanda   listaPedidos X preco de cada um
 
     @OneToMany(mappedBy = "comanda", orphanRemoval = true)
-    private List<Pedido> listaPedidos = new ArrayList<>();      // cada anotacao, e um pedido
+    private List<PedidoPersistenceEntity> listaPedidos = new ArrayList<>();      // cada anotacao, e um pedido
 
 }
